@@ -5,4 +5,5 @@ export const Items=[
     {id:Math.random(),title:"Dinner",description:'brackfast',price:'80$',category:'breakfast',imgurl:"OIP.jpeg"},
     {id:Math.random(),title:"Breakfast",description:'brackfast',price:'90$',category:'breakfast',imgurl:"OIP.jpeg"},
     {id:Math.random(),title:"Dinner",description:'Dinner',price:'1000$',category:'Dinner',imgurl:"OIP.jpeg"},
+    {id:Math.random(),title:"Dinner",description:'snak',price:'1000$',category:'snak',imgurl:"OIP.jpeg"},
 ]

@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row,Nav,Form,Button,NavDropdown,FormControl,Container,Navbar } from 'react-bootstrap'
 
-const NavBar = () => {
+const NavBar = ({filterbysearch}) => {
+    const [searchValue,setsearchValue] = useState('')
+    const onSearch=()=>
+        {
+            filterbysearch(searchValue)
+            setsearchValue('')
+        }
   return (
     <Row>
         <Navbar expand="lg"  bg='dark' variant='dark'>
@@ -23,9 +29,10 @@ const NavBar = () => {
                         type="text"
                         placeholder="Search"
                         className="mx-2"
-                        
+                        onChange={(e)=> setsearchValue(e.target.value)}
+                        value={searchValue}
                         />
-                        <Button className='btn-search'>Search</Button>
+                        <Button onClick={()=> onSearch()} className='btn-search'>Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>

@@ -8,6 +8,9 @@ import { Items } from "./Data";
 import React , { useState } from "react";
 function App() {
   const [ItemsData,setItemsData] = useState(Items)
+  //get all cat 
+  const allCat = ['All',...new Set(Items.map((i)=>i.category))]
+  console.log(allCat)
   //filter by category
   const filterbyCategory = (cat) => {
     if(cat === 'All'){
@@ -17,12 +20,19 @@ function App() {
       setItemsData(newArr)
     }
   }
+  //filter by search from
+  const filterbysearch = (word) => {
+    if(word !== ''){
+      const newArr=Items.filter((Items)=> Items.title === word)
+      setItemsData(newArr)
+    }
+  }
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar filterbysearch={filterbysearch}/>
       <Container>
       <Header/>
-      <Category filterbyCategory={filterbyCategory}/>
+      <Category filterbyCategory={filterbyCategory} allCat={allCat}/>
       <CardList itemsData={ItemsData}/>
       </Container>
     </div>
